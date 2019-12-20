@@ -1,0 +1,28 @@
+<img src="./assets/pokemon.jfif" alt="Logo Pokemon">
+<h2>My Pokemons</h2>
+
+<ul class="pokemons">
+  
+  <li *ngFor="let pokemon of pokemons"
+  
+    [class.selected]="pokemon === selectedPokemon"
+    (click)="onSelect(pokemon)">
+    <span class="badge">{{pokemon.id}}</span> {{pokemon.name}}
+
+    
+  </li>
+</ul>
+
+<div *ngIf="selectedPokemon">
+
+  <h2>{{selectedPokemon.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedPokemon.id}} Ataque:</div>
+  <img src="./assets/pikachu.png" alt="Pikachu">
+  
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedPokemon.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
